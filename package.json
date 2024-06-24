@@ -1,6 +1,6 @@
 {
   "name": "@aasifali/number-guess-game",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "LinkdeIn PIAIC Class . Number guessing game. On hand practice",
   "main": "index.js",
   "type": "module",
