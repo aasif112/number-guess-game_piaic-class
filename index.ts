@@ -7,31 +7,30 @@ import inquirer from "inquirer"
 // 2) Get an input number from user
 // 3) Check user number and show result.
 
-const compGuess = Math.trunc(Math.random()* 10 + 1)
-
-// console.log(compGuess)
-// console.log(typeof compGuess)
-
+const compGuess = Math.trunc(Math.random()* 6 + 1)
 
 const answer = await inquirer.prompt([
     {
-        message:"Guess a number and Enter to check:",
+        message:"Guess a number between 1 and 6 and Enter to check:",
         type:"number",
         name:"userGuess"
     }
 ])
 
-console.log('user input is:', answer.userGuess)
+// Made random-number range from 1-6
+// Add Check if condition: To check user enter valid number in given rang:
+// If user a One less or One more number the show message:
 
-// Check user input and show result:
+if(isNaN(answer.userGuess) || answer.userGuess<1 || answer.userGuess>6) {
+    console.log('Please enter a valid number from 1-6')
+} else {
+    if(answer.userGuess === compGuess) {
+        console.log('You guessed right number.')
+    } 
+    else if((answer.userGuess-1) === compGuess || (answer.userGuess+1) === compGuess) {
+            console.log('You nearly missed the number')
+        }
+}
 
-if(answer.userGuess === compGuess) {
-    console.log('You guessed right number.')
-} 
-else if (answer.userGuess < compGuess) {
-    console.log('You guessed a LOW number')
-}
-else if (answer.userGuess > compGuess) {
-    console.log('You guessed a HIGH number')
-}
+
 
